@@ -12,6 +12,7 @@ const HUBS = [
     href: "https://compliance-hub.co.uk",
     accent: "from-[#5B8DEF] to-[#27d9d9]",
     ring: "rgb(91 141 239 / 0.5)",
+    cardBg: "linear-gradient(155deg, #0e1a36 0%, #142850 55%, #1c3266 100%)",
     bullets: ["LOLER / PUWER / EICR", "RAMS · CDM 2015", "Audit packs on tap"],
   },
   {
@@ -21,6 +22,7 @@ const HUBS = [
     href: "https://care-hub-app.co.uk",
     accent: "from-[#31c6a9] to-[#5B8DEF]",
     ring: "rgb(49 198 169 / 0.5)",
+    cardBg: "linear-gradient(155deg, #0e3a35 0%, #15604f 55%, #1a7a64 100%)",
     bullets: ["MAR · Care plans · KLOE", "Incidents · NEWS2", "Family portal"],
   },
   {
@@ -30,6 +32,7 @@ const HUBS = [
     href: "https://fm-control-hub.co.uk",
     accent: "from-[#5EC86E] to-[#8a5cf6]",
     ring: "rgb(94 200 110 / 0.5)",
+    cardBg: "linear-gradient(155deg, #0e4724 0%, #2c8a48 40%, #4a4baf 75%, #6b3ecb 100%)",
     bullets: ["PPM + work orders", "Permits · contractors", "AMP / FCI / reliability"],
   },
 ];
@@ -54,25 +57,27 @@ export function HubsRow() {
           <Link
             key={h.product}
             href={h.href}
-            className="group relative flex flex-col overflow-hidden rounded-2xl border border-card/80 bg-card/30 p-7 backdrop-blur transition-all hover:-translate-y-1 hover:border-transparent"
-            style={{ ["--hover-ring" as any]: h.ring }}
+            className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 p-7 text-white shadow-elev transition-all hover:-translate-y-1 hover:border-white/30"
+            style={{ background: h.cardBg, ["--hover-ring" as any]: h.ring }}
           >
-            {/* gradient ring on hover */}
+            {/* subtle highlight on hover */}
             <span
               aria-hidden
-              className={`pointer-events-none absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br ${h.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
-              style={{ padding: 1 }}
+              className="pointer-events-none absolute inset-0 -z-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{
+                background: "radial-gradient(circle at 30% 0%, rgba(255,255,255,0.18) 0%, transparent 55%)",
+              }}
             />
 
-            {/* mark */}
-            <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-bg/70 ring-1 ring-card transition-all group-hover:ring-2 group-hover:ring-[var(--hover-ring)]">
-              <HubLogo product={h.product} size={48} />
+            {/* mark — black coin with product mark, like the reference photo */}
+            <div className="relative mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full bg-black/40 ring-1 ring-white/15 backdrop-blur-sm">
+              <HubLogo product={h.product} size={56} />
             </div>
 
-            <h3 className="mb-2 text-2xl font-bold">{h.title}</h3>
-            <p className="mb-5 text-sm leading-relaxed text-muted">{h.blurb}</p>
+            <h3 className="relative mb-2 text-2xl font-bold">{h.title}</h3>
+            <p className="relative mb-5 text-sm leading-relaxed text-white/80">{h.blurb}</p>
 
-            <ul className="mb-6 space-y-1.5 text-xs uppercase tracking-[0.15em] text-muted">
+            <ul className="relative mb-6 space-y-1.5 text-xs uppercase tracking-[0.15em] text-white/70">
               {h.bullets.map((b) => (
                 <li key={b} className="flex items-center gap-2">
                   <span className={`inline-block h-1 w-3 rounded-full bg-gradient-to-r ${h.accent}`} />
@@ -81,9 +86,9 @@ export function HubsRow() {
               ))}
             </ul>
 
-            <div className="mt-auto inline-flex items-center gap-2 text-sm font-semibold">
-              Visit {h.title}
-              <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            <div className="relative mt-auto inline-flex items-center gap-2 self-start rounded-pill bg-white/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] backdrop-blur-sm transition group-hover:bg-white/25">
+              Learn more
+              <ArrowUpRight size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </div>
           </Link>
         ))}
