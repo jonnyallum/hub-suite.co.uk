@@ -9,7 +9,7 @@ const HUBS = [
     product: "compliance" as const,
     title: "Compliance Hub",
     blurb: "Statutory compliance & risk operations. LOLER, PUWER, RIDDOR, EICR, Gas, Fire, Legionella, RAMS, CDM, Asbestos — one operating system, one audit trail.",
-    href: "https://compliance-hub.co.uk",
+    href: "https://compliance-hub.jonnyai.co.uk",
     accent: "from-[#5B8DEF] to-[#27d9d9]",
     ring: "rgb(91 141 239 / 0.5)",
     cardBg: "linear-gradient(155deg, #0e1a36 0%, #142850 55%, #1c3266 100%)",
@@ -19,7 +19,7 @@ const HUBS = [
     product: "care" as const,
     title: "Care Hub",
     blurb: "CQC-aligned residential & nursing care. Residents, care plans, MAR, incidents, KLOE, training, audits — built for UK homes.",
-    href: "https://care-hub-app.co.uk",
+    href: "https://care-hub.jonnyai.co.uk",
     accent: "from-[#31c6a9] to-[#5B8DEF]",
     ring: "rgb(49 198 169 / 0.5)",
     cardBg: "linear-gradient(155deg, #0e3a35 0%, #15604f 55%, #1a7a64 100%)",
@@ -29,7 +29,7 @@ const HUBS = [
     product: "fm" as const,
     title: "FM Control Hub",
     blurb: "Master facility management. PPM, work orders, permits, contractor & key control, energy + reliability reporting — the operations brain.",
-    href: "https://fm-control-hub.co.uk",
+    href: "https://fm-control-hub.jonnyai.co.uk",
     accent: "from-[#5EC86E] to-[#8a5cf6]",
     ring: "rgb(94 200 110 / 0.5)",
     cardBg: "linear-gradient(155deg, #0e4724 0%, #2c8a48 40%, #4a4baf 75%, #6b3ecb 100%)",
@@ -87,7 +87,7 @@ export function HubsRow() {
             </ul>
 
             <div className="relative mt-auto inline-flex items-center gap-2 self-start rounded-pill bg-white/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] backdrop-blur-sm transition group-hover:bg-white/25">
-              Learn more
+              Open the app
               <ArrowUpRight size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </div>
           </Link>

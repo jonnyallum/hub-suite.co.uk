@@ -20,10 +20,10 @@ export function NavBar() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <a
-              href="#contact"
+              href="#hubs"
               className="hidden rounded-pill bg-brand-gradient px-4 py-2 text-sm font-bold text-white shadow-glow transition hover:translate-y-[-1px] sm:inline-flex"
             >
-              Get started
+              Open a hub
             </a>
           </div>
         </div>
