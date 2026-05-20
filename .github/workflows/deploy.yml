@@ -19,13 +19,14 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: SFTP Deploy to Hostinger
-        uses: easingthemes/ssh-deploy@v4
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          SOURCE: "./out/"
-          REMOTE_HOST: "92.112.189.250"
-          REMOTE_PORT: "65002"
-          REMOTE_USER: "u384342620"
-          PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          REMOTE_PATH: "/public_html/"
-          ARGS: "-rltgoDzvO"
-          EXCLUDE: "/node_modules/"
+          server: '92.112.189.250'
+          port: '65002'
+          username: 'u384342620'
+          password: '${{ secrets.FTP_PASSWORD }}'
+          local_path: './out/'
+          remote_path: '/public_html/'
+          args: '-avzr --delete'
+          include: '*'
+          exclude: 'node_modules'
